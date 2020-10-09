@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SwPush, SwUpdate} from '@angular/service-worker';
 import { NewsletterService } from './newsletter.service';
 import { MapService } from './map.service';
@@ -8,7 +8,7 @@ import { MapService } from './map.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   readonly VAPID_PUBLIC_KEY = 'BCNVbiY2W4wbKEIEoA7ChkmtKWUB5M4NQ-dN4M1acfFJSPEB2gJpNYbb0AnXT2--pcrGDOOclKh3z6si76qfpto';
   title = 'ngseo';
 
