@@ -52,4 +52,19 @@ export class AppComponent implements OnInit  {
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
 
+  getPosition(): Promise<any>
+  {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+        },
+        err => {
+          reject(err);
+        });
+    });
+
+  }
+
 }
