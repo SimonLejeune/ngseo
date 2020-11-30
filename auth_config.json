@@ -1,7 +1,7 @@
 {
-  "domain": "dev-6bkzyo5x.eu.auth0.com",
-  "clientId": "RvVYg9QlzJXNHPE2bwCxJGQp343SbPYZ",
+  "domain": "dev-h75mh4ie.eu.auth0.com",
+  "clientId": "2ojSPDLcpDC6WPp4Dh3qEXtakBLez0iO",
   "audience": "https://serverpwa.herokuapp.com/",
   "apiUri": "https://serverpwa.herokuapp.com",
-  "appUri": "https://relaxed-wescoff-b10822.netlify.app"
+  "appUri": "https://ngseo.netlify.app/"
 }
