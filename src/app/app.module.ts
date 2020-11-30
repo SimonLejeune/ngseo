@@ -18,6 +18,7 @@ import { ExternalApiComponent } from './pages/external-api/external-api.componen
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { environment as env } from '../environments/environment';
     ExternalApiComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
@@ -44,6 +45,7 @@ import { environment as env } from '../environments/environment';
         ...env.httpInterceptor,
       },
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.production }),
   ],
   providers: [
     {
