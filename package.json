@@ -1,5 +1,5 @@
 {
-  "name": "myPwa",
+  "name": "ngseo",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,7 +18,7 @@
     "dev": "npm-run-all --parallel start server:api",
     "prod": "npm-run-all --parallel server:app server:api",
     "postbuild": "npm run copy:server",
-    "copy:server": "cp server.js auth_config.json dist/myPwa"
+    "copy:server": "cp server.js auth_config.json dist/ngseo"
   },
   "private": true,
   "dependencies": {
