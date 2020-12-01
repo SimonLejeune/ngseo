@@ -19,6 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { MapComponent } from './components/map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HomeContentComponent,
     LoadingComponent,
     ExternalApiComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -46,6 +49,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       },
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: env.production }),
+    LeafletModule,
   ],
   providers: [
     {
