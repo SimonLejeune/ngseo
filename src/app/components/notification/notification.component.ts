@@ -10,14 +10,14 @@ import { NewsletterService } from '../../newsletter.service';
 export class NotificationComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY = 'BCNVbiY2W4wbKEIEoA7ChkmtKWUB5M4NQ-dN4M1acfFJSPEB2gJpNYbb0AnXT2--pcrGDOOclKh3z6si76qfpto';
 
-  constructor(private swPush: SwPush, private ns: NewsletterService) { }
-
-  ngOnInit(): void {
+  constructor(private swPush: SwPush, private ns: NewsletterService) {
     this.subscribeToNotifications();
   }
 
+  ngOnInit(): void {
+  }
+
   subscribeToNotifications() {
-    console.log('subsribe');
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
@@ -25,5 +25,8 @@ export class NotificationComponent implements OnInit {
         console.log(res);
       }))
       .catch(err => console.error('Could not subscribe to notifications', err));
+    this.swPush.notificationClicks.subscribe((result) => {
+      console.log('clicked', result);
+    });
   }
 }
