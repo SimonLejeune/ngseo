@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class NewsletterService {
 
-  constructor(public _http: HttpClient) { }
+  constructor(public http: HttpClient) { }
   addPushSubscriber(sub: any) {
-    return this._http.post('https://serverpwa.herokuapp.com/subscribe', sub);
+    return this.http.post('https://serverpwa.herokuapp.com/subscribe', sub);
   }
 }
