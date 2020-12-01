@@ -7,5 +7,6 @@
   <app-home-content></app-home-content>
   <div *ngIf="(auth.isAuthenticated$ | async)">
     <app-map></app-map>
+    <app-notification></app-notification>
   </div>
 </ng-template>

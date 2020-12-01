@@ -21,6 +21,7 @@ import { environment as env } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     LoadingComponent,
     ExternalApiComponent,
     MapComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
