@@ -2,7 +2,7 @@
   "name": "myPwa",
   "short_name": "myPwa",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#78909c",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
