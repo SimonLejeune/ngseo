@@ -3,6 +3,7 @@
 </div>
 
 <ng-template #loaded>
+  <app-install></app-install>
   <app-home-content *ngIf="!(auth.isAuthenticated$ | async)"></app-home-content>
   <div *ngIf="(auth.isAuthenticated$ | async)">
     <app-notification></app-notification>
