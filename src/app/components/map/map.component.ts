@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  * as L from 'leaflet';
+import { WeatherService } from '../../weather.service';
+
 
 @Component({
   selector: 'app-map',
@@ -7,8 +9,9 @@ import  * as L from 'leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  map;
-  constructor() { }
+  public map;
+  public weather;
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
     if (L) {
@@ -30,15 +33,23 @@ export class MapComponent implements OnInit {
     }
   }
 
+  setMarker() {
+
+  }
+
   getPosition(): Promise<any>
   {
     return new Promise((resolve, reject) => {
 
-      navigator.geolocation.getCurrentPosition(resp => {
-
+      navigator.geolocation.getCurrentPosition(
+        resp => {
           resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
           console.log(resp);
           L.marker([resp.coords.latitude, resp.coords.longitude]).addTo(this.map);
+
+          this.weatherService.getWeather(resp.coords.latitude, resp.coords.longitude).subscribe( res => {
+            this.weather = res;
+          });
         },
         err => {
           reject(err);
