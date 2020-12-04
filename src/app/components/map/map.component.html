@@ -1,27 +1,35 @@
-<div class="row">
-  <div class="col-md-5 mb-4">
-    <div *ngIf="weather">
-      <p>Ciel: {{weather.weather[0].main}}</p>
-      <p>Température: {{weather.main.temp}}</p>
-      <p>Température ressentie: {{weather.main.feels_like}}</p>
+<div class="locBtn text-center">
+  <h4>Pick your location with geolocation or by entering your city's name</h4>
 
-
-    </div>
-  </div>
-
-  <div class="col-md-5 mb-4">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin=""></script>
-
-    <div id="map" style="width:500px;height:500px"></div>
-  </div>
-
-  <button class="btn btn-primary btn-block" (click)="getPosition()">
+  <button type="button" class="btn btn-primary" (click)="setPosition()">
     Localize
   </button>
 
+  <input placeholder="Lille,France or San Diego" class="" (keydown.enter)="setCity($event)"/>
+</div>
+
+<div class="row container">
+  <div class="col-md-6 col-sm-12">
+    <div *ngIf="!geoErr && located && weather">
+      <p>Sky: {{weather.weather[0].main}}</p>
+      <p>Temperature: {{weather.main.temp}}</p>
+      <p>Temperature felt: {{weather.main.feels_like}}</p>
+    </div>
+    <div *ngIf="geoErr">
+      {{geoErr}}
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-12">
+    <div>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+              integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+              crossorigin=""></script>
+
+      <div id="map"></div>
+    </div>
+  </div>
 </div>

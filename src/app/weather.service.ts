@@ -9,7 +9,11 @@ export class WeatherService {
 
   constructor(public http: HttpClient) { }
   
-  getWeather(lat, lon) {
+  getWeatherByCoordinates(lat, lon) {
     return this.http.get(ApiUrl.weather + "?lat=" + lat + "&lon=" + lon);
+  }
+
+  getWeatherByCity(city) {
+    return this.http.get(ApiUrl.weather + "?q=" + city);
   }
 }
