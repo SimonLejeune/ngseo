@@ -1,7 +1,6 @@
 <script type="text/javascript" src="https://github.com/schmich/instascan/releases/download/1.0.0/instascan.min.js"></script>
 
-<body>
-<video id="preview"></video>
+<!-- <video id="preview"></video> -->
 <script type="text/javascript">
   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
   scanner.addListener('scan', function (content) {
@@ -17,4 +16,3 @@
     console.error(e);
   });
 </script>
-</body>
