@@ -106,6 +106,7 @@ export class MapComponent implements OnInit {
         this.marker = L.marker([this.weather.coord.lat, this.weather.coord.lon]);
         this.marker.addTo(this.map);
         this.geoErr = null;
+        this.located = true;
       },
       err => {
         this.geoErr = "City not found !";
