@@ -97,13 +97,19 @@ export class MapComponent implements OnInit {
   setCity(event) {
     let loc = event.target.value;
 
-    this.weatherService.getWeatherByCity(loc).subscribe( res => {
-      this.weather = res;
+    this.weatherService.getWeatherByCity(loc).subscribe(
+      res => {
+        this.weather = res;
 
-      if (this.marker)
-        this.map.removeLayer(this.marker);
-      this.marker = L.marker([this.weather.coord.lat, this.weather.coord.lon]);
-      this.marker.addTo(this.map);
-    });
+        if (this.marker)
+          this.map.removeLayer(this.marker);
+        this.marker = L.marker([this.weather.coord.lat, this.weather.coord.lon]);
+        this.marker.addTo(this.map);
+        this.geoErr = null;
+      },
+      err => {
+        this.geoErr = "City not found !";
+      }
+      );
   }
 }
