@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {}
 
   loginWithRedirect() {
-    this.auth.loginWithPopup();
+    this.auth.loginWithRedirect();
   }
 
   logout() {
