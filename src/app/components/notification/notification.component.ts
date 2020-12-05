@@ -27,7 +27,7 @@ export class NotificationComponent implements OnInit {
       .catch(err => console.error('Could not subscribe to notifications', err));
 
     this.swPush.notificationClicks.subscribe((result) => {
-      window.open('https://ngseo.netlify.app/profile', '_self');
+      window.open('https://ngseo.netlify.app/profile', '_blank');
     });
   }
 }
